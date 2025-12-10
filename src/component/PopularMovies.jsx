@@ -2,14 +2,13 @@ import React from "react";
 import { Star } from "lucide-react";
 import { MoveRight, MoveLeft } from "lucide-react";
 
-
-const PopularMovies = ({ movies }) => {
+const PopularMovies = ({ movies, pageNo, totalPages }) => {
   return (
     <>
       <div className="flex justify-between">
         <h2 className="text-3xl text-white font-DM-Sans font-bold">Popular</h2>
       </div>
-      <div className="grid grid-cols-4 gap-4 py-6">
+      <div className="grid grid-cols-3 gap-4 py-6">
         {movies.map((movie, index) => (
           <div
             key={index}
@@ -32,15 +31,14 @@ const PopularMovies = ({ movies }) => {
       </div>
 
       <div className="flex justify-between items-center gap-2">
-        <button
-          className="p-2 border rounded-lg bg-[#0F0D23] shadow-[0px_12px_32px_0px_#CECEFB05_inset] disabled:opacity-50 cursor-pointer"
-        >
-          <MoveLeft className="text-white" />
+        <button className="p-2 border rounded-lg bg-[#0F0D23] shadow-[0px_12px_32px_0px_#CECEFB05_inset] disabled:opacity-50 cursor-pointer">
+          <MoveLeft className="text-[#AB8BFF]" />
         </button>
-        <button
-          className="p-2 border rounded-lg bg-[#0F0D23] shadow-[0px_12px_32px_0px_#CECEFB05_inset] disabled:opacity-50 cursor-pointer"
-        >
-          <MoveRight className="text-white" />
+        <p className="text-white font-DM-Sans font-bold">
+          {pageNo} / {totalPages}
+        </p>
+        <button className="p-2 border rounded-lg bg-[#0F0D23] shadow-[0px_12px_32px_0px_#CECEFB05_inset] disabled:opacity-50 cursor-pointer">
+          <MoveRight className="text-[#AB8BFF]" />
         </button>
       </div>
     </>

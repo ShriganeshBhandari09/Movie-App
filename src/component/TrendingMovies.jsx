@@ -1,18 +1,18 @@
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 
 const TrendingMovies = ({ movies }) => {
   const moviesRef = useRef(null);
 
   const leftScroll = () => {
-    console.log("left");
     moviesRef.current.scrollLeft -= 500;
   };
 
   const rightScroll = () => {
-    console.log("right");
     moviesRef.current.scrollLeft += 500;
   };
+
   return (
     <>
       <div className="flex justify-between">
@@ -33,21 +33,30 @@ const TrendingMovies = ({ movies }) => {
         </div>
       </div>
       <div
-        className="flex justify-between gap-20 py-5 overflow-x-scroll pl-6 scroll-smooth"
+        className="flex justify-between gap-20 py-5 overflow-x-scroll px-8 scroll-smooth"
         style={{ scrollbarWidth: "none" }}
         ref={moviesRef}
       >
         {movies.map((movie, index) => (
-          <div key={index} className="relative  flex-shrink-0">
+          <Link
+            key={index}
+            className="relative  flex-shrink-0 cursor-pointer"
+            to={`/movie/${movie?.id}`}
+          >
             <img
               src={`https://image.tmdb.org/t/p/w500/${movie?.poster_path}`}
               alt=""
-              className="h-50 rounded-lg"
+              className="h-65 rounded-lg"
             />
-            <h3 className="text-[#CECEFB1A] bg-[#CECEFB1A] bg-clip-text text-9xl font-extrabold  absolute top-1/2  transform -translate-x-1/2 -translate-y-1/2">
+            <h3
+              className="bg-[#CECEFB1A] bg-clip-text text-9xl font-extrabold  absolute top-1/2  transform -translate-x-1/2 font-DM-Sans "
+              style={{
+                WebkitTextStroke: "2px white",
+              }}
+            >
               {index + 1}
             </h3>
-          </div>
+          </Link>
         ))}
       </div>
     </>

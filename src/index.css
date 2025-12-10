@@ -34,3 +34,7 @@ body {
 @theme {
   --font-DM-Sans: "DM Sans", sans-serif;
 }
+
+.grid-display-columns {
+  grid-template-columns: 0.25fr 0.75fr;
+}

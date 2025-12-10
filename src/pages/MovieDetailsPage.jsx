@@ -1,8 +1,11 @@
+import MovieDetails from "../container/MovieDetails";
 
 const MovieDetailsPage = () => {
   return (
-    <div>MovieDetailsPage</div>
-  )
-}
+    <>
+      <MovieDetails />
+    </>
+  );
+};
 
-export default MovieDetailsPage
+export default MovieDetailsPage;

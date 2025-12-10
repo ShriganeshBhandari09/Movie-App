@@ -7,16 +7,10 @@ import TrendingMovies from "../component/TrendingMovies";
 import PopularMovies from "../component/PopularMovies";
 
 const HomeContainer = () => {
-  const [pageNo, setPageNo] = useState(1);
-
-  const handlePageChange = (newPage) => {
-    setPageNo(newPage);
-    scrollTo(0, 0);
-  };
-
-  const movieData = useSelector((state) => state.movies.movies);
+  const { movies, pageNo, totalPages } = useSelector((state) => state.movies);
   const loading = useSelector((state) => state.movies.loading);
 
+  console.log(movies);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -25,8 +19,8 @@ const HomeContainer = () => {
 
   // if (loading) return <div className="loader"></div>;
 
-  const topThreeMovies = movieData?.slice(0, 3);
-  const top10Movies = movieData?.slice(3, 13);
+  const topThreeMovies = movies?.slice(0, 3);
+  const top10Movies = movies?.slice(3, 13);
 
   return (
     // <div className="bg-gray-800 px-3 sm:px-[5vw] lg:px-[9vw] pt-24">
@@ -75,10 +69,9 @@ const HomeContainer = () => {
     // </div>
     <>
       <Hero movies={topThreeMovies} />
-
       <div className="px-3 sm:px-[5vw] lg:px-[9vw] py-10">
         <TrendingMovies movies={top10Movies} />
-        <PopularMovies movies={movieData} />
+        <PopularMovies movies={movies} pageNo={pageNo} totalPages={totalPages} />
       </div>
     </>
   );

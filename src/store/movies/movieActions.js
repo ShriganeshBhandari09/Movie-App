@@ -49,3 +49,27 @@ export const fetchSearchMoviesSuccess = () => ({
 export const fetchSearchMoviesError = () => ({
   type: "FETCH_SEARCH_MOVIES_ERROR",
 });
+
+export const fetchMovieDetailsRequest = (id) => ({
+  type: "FETCH_MOVIE_DETAILS_REQUEST",
+  payload: { id },
+});
+
+export const fetchMovieDetailsSuccess = () => ({
+  type: "FETCH_MOVIE_DETAILS_SUCCESS",
+});
+
+export const fetchMovieDetailsError = () => ({
+  type: "FETCH_MOVIE_DETAILS_ERROR",
+});
+
+
+
+export const fetchMovieDetailsVideosSuccess = () => ({
+  type: "FETCH_MOVIE_DETAILS_VIDEO_SUCCESS",
+});
+
+export const fetchMovieDetailsVideosError = () => ({
+  type: "FETCH_MOVIE_DETAILS_VIDEO_ERROR",
+});
+
